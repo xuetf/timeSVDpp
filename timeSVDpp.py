@@ -51,18 +51,18 @@ class timeSVDpp:
 
         self.alpha_u_k = alpha_u_k
         self.userFactors_t = userFactors_t
-        print 'initialization finished...'
+        print ('initialization finished...')
 
         self.average = self.avg()
-        print 'avg = ', self.average
-        print 'training started...'
+        print ('avg = ', self.average)
+        print ('training started...')
         self.train(self.iterations)
-        print 'training finished...'
+        print ('training finished...')
 
-        print 'evaluation started...'
+        print ('evaluation started...')
         rmse = self.RMSE()
-        print 'RMSE = ', rmse
-        print 'evaluation finished'
+        print ('RMSE = ', rmse)
+        print ('evaluation finished')
 
 
     def init(self, nUsers, nItems, nFactors, nBins):
@@ -88,7 +88,7 @@ class timeSVDpp:
         userFactors_t = []
         for j in range(nUsers + 1):
             if j % 100 == 0:
-                print "u: ", j
+                print ("u: ", j)
             f_d = np.random.random((nFactors, self.nDays))
             for i in range(len(f_d)):
                 for k in range(len(f_d[i])):
@@ -119,7 +119,7 @@ class timeSVDpp:
             print ('-------------------', i + 1,' ----------------')
             self.oneIteration()
             rmse = self.RMSE()
-            print 'iteration: ', i + 1, ', RMSE = ', rmse
+            print ('iteration: ', i + 1, ', RMSE = ', rmse)
 
     def oneIteration(self):
 
@@ -250,7 +250,7 @@ class timeSVDpp:
 
     # evaluating the model using RMSE
     def RMSE(self):
-        with open("C:\\Users\\trimi\\Desktop\\timeSVD++\\SVD\\dataset\\ml-100k\\u1.test", 'rb') as f:
+        with open("ml-100k/u1.test", 'rb') as f:
             data = csv.reader(f, delimiter = '\t')
 
             mean_squared_error = 0

@@ -13,7 +13,6 @@ import numpy as np
 import matplotlib as mp
 import random
 from random import randint
-import math
 import matplotlib.pyplot as plt
 import collections
 
@@ -32,7 +31,7 @@ class loadMovieData:
 
                 row = []
                 if b % 10000 == 0:
-                    print 'b  = ', b
+                    print ('b  = ', b)
 
                 a = line.split('\t')
 
@@ -65,11 +64,11 @@ class loadMovieData:
                         itemUsers[item].append((user, rating, time_))
 
                 b += 1
-            print '#pos_events = ', b
+            print ('#pos_events = ', b)
             min_timestamp = min(timestamps)
             max_timestamp = max(timestamps)
 
-            print 'max item id = ', max(max_item)
+            print ('max item id = ', max(max_item))
             return matrix, userItems, itemUsers, min_timestamp, max_timestamp
 
     def num_of_days(self, min_timestamp, max_timestamp):
@@ -112,7 +111,7 @@ class loadMovieData:
         return userItems, itemUsers
 
     def main(self):
-        matrix, userItems, itemUsers, min_timestamp, max_timestamp = self.read_training_data("C:\\Users\\trimi\\Desktop\\timeSVD++\\SVD\\dataset\\ml-100k\\u1.base")
+        matrix, userItems, itemUsers, min_timestamp, max_timestamp = self.read_training_data("ml-100k/u1.base")
         num_days = self.num_of_days(min_timestamp, max_timestamp)
         new_userItems, new_itemUsers = self.timestamp_to_day(matrix,num_days, min_timestamp)
 
