@@ -125,7 +125,7 @@ class timeSVDpp:
 
         for userId in range(1, len(self.userItems) + 1):
 
-            print ('updates for the user:', userId, ' STARTED...')
+            #print ('updates for the user:', userId, ' STARTED...')
 
             tmpSum = np.zeros(self.factors, dtype='float')
 
